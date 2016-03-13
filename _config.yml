@@ -8,14 +8,18 @@ subtitle:
 description:
 author: Adrian Haasler
 language:
+  - en
+  - es
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: https://ahaasler.github.io/hexo-multilingual-demo
 root: /hexo-multilingual-demo/
-permalink: :year/:month/:day/:title/
+permalink: :lang/:category/:title/
 permalink_defaults:
+  lang: en
+  category: uncategorized
 
 # Directory
 source_dir: source
@@ -28,7 +32,7 @@ i18n_dir: :lang
 skip_render:
 
 # Writing
-new_post_name: :title.md # File name of new posts
+new_post_name: :lang/:category/:year-:month-:day-:title.md # File name of new posts
 default_layout: post
 titlecase: false # Transform title into titlecase
 external_link: true # Open external links in new tab
