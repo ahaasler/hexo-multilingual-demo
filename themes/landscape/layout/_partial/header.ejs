@@ -19,9 +19,13 @@
         <% } %>
       </nav>
       <nav id="sub-nav">
-        <% _.sortBy(page.alternates, 'lang').forEach(function(alternate) { %>
-          <a class="sub-nav-link<% if (alternate.lang == page.lang) { %> current<% } %>" href="<%- url_for(alternate.path) %>" hreflang="<%- alternate.lang %>" title="<%- alternate.title %>"><%- alternate.lang %></a>
-        <% }); %>
+        <% if (config.multilingual) { %>
+          <%- list_alternates({
+            element: '<a class="sub-nav-link %currentTag" href="%url" hreflang="%lang" title="%title">%lang</a>',
+            prepend: '',
+            append: ''
+          }) %>
+        <% } %>
         <% if (theme.rss){ %>
           <a id="nav-rss-link" class="nav-icon" href="<%- theme.rss %>" title="<%= __('rss_feed') %>"></a>
         <% } %>
